@@ -29,6 +29,30 @@ struct menuItemRiceNoodleSoup{
     double itemCost;
 };
 
+struct menuItemEggNoodles{
+    //this constructor allows us to add items to the vector for the Egg Nooble
+    //part of te menu options;
+    menuItemEggNoodles(string a, double b): itemName(a), itemCost(b) {}
+    string itemName;
+    double itemCost;
+};
+struct menuItemBanhMi{
+    //this constructor allows us to add items to the vector for the sandwich sub menu
+    //part of the menu options
+
+    menuItemBanhMi(string a, double b): itemName(a), itemCost(b) {}
+    string itemName;
+    double itemCost;
+};
+
+struct menuItemDrinks{
+    //this constructor allows us to add items to the vector for Drinks menu
+    // a sub menu section
+    menuItemDrinks(string a, double b): itemName(a), itemCost(b) {}
+    string itemName;
+    double itemCost;
+};
+
 //A flexible approach that would keep track of all the indendepent orders that way and then would generate a final report
 struct singleOrder{
     singleOrder(unsigned int io, unsigned int ni): itemOrdered(io), numberItems(ni) {}
@@ -343,11 +367,11 @@ int finalPayment( double summingAmount) {
         check15 = checksum15 * 2;   //if the number starts with 4 then perform this operation
         check13 = checksum13 * 2;
         check11 = checksum11 * 2;
-        check9  = checksum9 * 2;
-        check7  = checksum7 * 2;
-        check5  = checksum5 * 2;
-        check3  = checksum3 * 2;
-        check1  = checksum1 * 2;
+        check9  = checksum9  * 2;
+        check7  = checksum7  * 2;
+        check5  = checksum5  * 2;
+        check3  = checksum3  * 2;
+        check1  = checksum1  * 2;
 
         total   = (check15 / 10) + (check15 % 10) + (check13 / 10) + (check13 % 10) + (check11 / 10) + (check11 % 10) + (check9 / 10) + 
                   (check9 % 10) + (check7 / 10) + (check7 % 10) + (check5 / 10) + (check5 % 10) + (check3 % 10) + (check3 / 10) + (check1 / 10) + 
@@ -440,15 +464,13 @@ int mainMenu() {
     cout << "What would you like to order? :" << endl;
     cout << "   For Appetizers enter 1" << endl;
     //cout << endl;
-    cout << "   For Bun - Rice Vermicell enter 2" << endl;
+    cout << "   For Pho - Rice Nooble Soup enter 2" << endl;
     //cout << endl;
-    cout << "   For Pho - Rice Nooble Soup enter 3 " << endl;
-    cout << "   For Mi - Egg Noodles enter 4 " << endl;
-    cout << "   For Com Dia - Gourmet Rice Dishes enter 5 " << endl;
-    cout << "   For Banhi Mi  - Vietnamese Sandwiches enter 6 " << endl;
-    cout << "   For Drinks enter 7 " << endl;
-    cout << "   Enter 8 for check-out" << endl;
-    cout << "Enter choice between 1 - 8: ";
+    cout << "   For Mi - Egg Noodles enter 3 " << endl;
+    cout << "   For Banhi Mi  - Vietnamese Sandwiches enter 4 " << endl;
+    cout << "   For Drinks enter 5 " << endl;
+    cout << "   Enter 6 for checkout " << endl;
+    cout << "Enter choice between 1 - 6: ";
     cin >> choice;
 
     return choice;
@@ -470,31 +492,65 @@ int main()
     this_thread::sleep_for(2s);
     cout << "               Press the enter key to continue     ";
     cin.ignore();
-    //system("CLS")
-    //mainMenu();
-    //cout << string(50, '\n');
 
     //Adding the Appetizers items to the menu!
     vector<menuItemAppetizers> appetizersMenu;
-    appetizersMenu.push_back(menuItemAppetizers("Vietnamese Egg Rolls(2) - Groud pork, shrimp, carrots, taro, served with lettuce and a sweet, spicy sauce  ", 2.99));
+    appetizersMenu.push_back(menuItemAppetizers("Vietnamese Egg Rolls(2)    - Groud pork, shrimp, carrots, taro, served with lettuce and a sweet, spicy sauce  ", 2.99));
     appetizersMenu.push_back(menuItemAppetizers("Vietnamese Spring Rolls(2) - Pork, shrimp, rice, noodles and mint leaves wrapped in rice paper with a peanut sauce  ", 4.99));
     appetizersMenu.push_back(menuItemAppetizers("Nem Nuong Cuon(2) - Grilled pork sausage spring roll  ", 4.99));
-    appetizersMenu.push_back(menuItemAppetizers("Bo Nuong - Short rib beef marinated and grilled. Served with lettuce and cilantro  ", 7.99));
+    appetizersMenu.push_back(menuItemAppetizers("Bo Nuong          - Short rib beef marinated and grilled. Served with lettuce and cilantro  ", 7.99));
     appetizersMenu.push_back(menuItemAppetizers("Myo Chien - Lightly coated deep fried calamari, stir-tried with fresh garllic and chill pepper. Served with lettuce and cilantro  ", 8.99));
-    appetizersMenu.push_back(menuItemAppetizers("Hen Nuog - Marinated mussels grilled with green onions  ", 9.99));
-    appetizersMenu.push_back(menuItemAppetizers("Chim Cut Quay - quails slowly roasted to perfection  ", 9.99));
+    appetizersMenu.push_back(menuItemAppetizers("Hen Nuog  - Marinated mussels grilled with green onions  ", 9.99));
+    appetizersMenu.push_back(menuItemAppetizers("Chim Cut Quay       - quails slowly roasted to perfection  ", 9.99));
     appetizersMenu.push_back(menuItemAppetizers("Canh Ga Nudo Mam(6) - Stir fried chicken with fish sauce  ", 6.99));
     appetizersMenu.push_back(menuItemAppetizers("Seasame Chicken Wings(6) - Deep fried chicken wings cooked in sesame sauce  ", 6.99));
-    appetizersMenu.push_back(menuItemAppetizers("House Chicken Wings(6) - Deep fried, spicy chicken wings stir-fried in our special garlic seasoning  ", 6.99));
+    appetizersMenu.push_back(menuItemAppetizers("House Chicken Wings(6)   - Deep fried, spicy chicken wings stir-fried in our special garlic seasoning  ", 6.99));
 
+    //Adding the Rice Noodle soup menu!
     vector<menuItemRiceNoodleSoup> phoMenu;
     phoMenu.push_back(menuItemRiceNoodleSoup("Pho Dao Biet - Rice noodle soup served with sliced flank steak beef brisket tendom, and meat balls  ", 9.99));
     phoMenu.push_back(menuItemRiceNoodleSoup("Pho Tai      - Rice noodle served with sliced flank steak  ", 8.99));
     phoMenu.push_back(menuItemRiceNoodleSoup("Pho Ga       - Rice noodle soup served with seasoned chicken breast  ", 8.99));
+    phoMenu.push_back(menuItemRiceNoodleSoup("Hu Tieu Dao Biet - A seafood combination of shrimp, crab meat, scallops and fish ball ", 9.99));
+    phoMenu.push_back(menuItemRiceNoodleSoup("Hu Tieu Ga       - Rice noodle with sliced chicken breast ", 8.99));
+
+    //Adding the Egg Noodles to the menu!
+    vector<menuItemEggNoodles> eggNoodles;
+    eggNoodles.push_back(menuItemEggNoodles("Mi Dao Biet - Egg noodle soup with shrimp, crab meat and pork ", 9.99));
+    eggNoodles.push_back(menuItemEggNoodles("Mi Hai San  - Egg noodle soup with shrimp, crab meat, scallops and fish ball ", 10.99));
+    eggNoodles.push_back(menuItemEggNoodles("Mi Ga - Egg noodle soup served with sliced chicken breast ", 8.99));
+    eggNoodles.push_back(menuItemEggNoodles("Mi Kho Dao Biet - Dried egg noodles with shrimp, crab meat, pork and meant ball served with broth on the side ", 9.99));
+    eggNoodles.push_back(menuItemEggNoodles("Mi Xao - Stir Fried egg noodles with seafood and vegatbles ", 14.99));
+
+    //Adding vietnamese sandwiches
+    vector<menuItemBanhMi> banhMi;
+    banhMi.push_back(menuItemBanhMi("Banh mi Deo Beit - BBQ pork, Vietnames ham and head cheese ", 5.00));
+    banhMi.push_back(menuItemBanhMi("Banh Mi Ga - Vietnamese chicken sandwich with pickled vegatables ", 5.00));
+    banhMi.push_back(menuItemBanhMi("Banh Mi Bo - Vietnamese beef sandwich with pickled vegatables ", 5.00));
+    banhMi.push_back(menuItemBanhMi("Banh Mi Bi - Vietnamese shredded pork sandwich with pickled vegetables ", 5.00));
+
+    //Adding the drink Menu!
+    vector<menuItemDrinks> drinksMenu;
+    drinksMenu.push_back(menuItemDrinks("Soy Bean Milk  ", 3.00));
+    drinksMenu.push_back(menuItemDrinks("Coconut Juice   ", 3.00));
+    drinksMenu.push_back(menuItemDrinks("Fresh Lemon Juice & ice ", 4.50));
+    drinksMenu.push_back(menuItemDrinks("Cold Vietnamese Coffee ", 4.50));
+    drinksMenu.push_back(menuItemDrinks("Lime Juice Lipton ", 4.99));
+    drinksMenu.push_back(menuItemDrinks("Bubble Tea - Milk tea, Thai Tea, Taro, Coconut, or Mocha ", 4.99));
+    drinksMenu.push_back(menuItemDrinks("Smoothies  - Strawberry, Mango, Lychee, Mocha, Pina Colada ", 4.50));
+    drinksMenu.push_back(menuItemDrinks("Coke, Diet Coke, Sprite or Rootbeer ", 1.99));
+    drinksMenu.push_back(menuItemDrinks("Beer - Heineken, Corona, Budwiesar, Bud Light or Miller Lite ", 3.10));
+    
+
 
 
     vector<singleOrder> orderHistory;
     vector<singleOrder> orderHistory1;
+    vector<singleOrder> orderHistory2;
+    vector<singleOrder> orderHistory3;
+    vector<singleOrder> orderHistory4;
+    vector<singleOrder> orderHistory5;
+    
 
             //cin.ignore();
     
@@ -535,18 +591,18 @@ int main()
 
                 while (!( (order > 0)  && (order < 11) ) )
                 {
-                    cout << "Invalid order number! Enter a valid order number between 1-10";
+                    cout << "Invalid order number! Enter a valid order number between 1-10: ";
                     cin >> order;
                 }
   
 
-                cout << "How many of " << appetizersMenu[order - 1].itemName << " would you like? ";
+                cout << "How many of " << appetizersMenu[order - 1].itemName << " would you like?: ";
                 cin >> num1;
 
                 //vector<singleOrder> orderHistory;
                 orderHistory.push_back(singleOrder((order-1), num1));
 
-                cout << "Would you like to order something else from appetizer menu?[Enter 1 for YES and 2 for No]";
+                cout << "Would you like to order something else from appetizer menu?[Enter 1 for YES and 2 for No]: ";
                 cin >>answer;
             }
             while (answer != 2);
@@ -568,6 +624,83 @@ int main()
 
             //cout << endl;
                 cout << endl;
+                cout << "What would you like to order from the Pho menu [enter between 1 - 5]?: ";
+                cin >> order;
+
+                while (!( (order > 0)  && (order < 6) ) )
+                {
+                    cout << "Invalid order number! Enter a valid order number between 1-5: ";
+                    cin >> order;
+                }
+  
+
+                cout << "How many of " << phoMenu[order - 1].itemName << " would you like?: ";
+                cin >> num1;
+
+                //vector<singleOrder> orderHistory;
+                orderHistory1.push_back(singleOrder((order-1), num1));
+
+                cout << "Would you like to order something else from Pho menu?[Enter 1 for YES and 2 for No]: ";
+                cin >>answer;
+            }
+            while (answer != 2);
+
+        }
+        if (pick == 3)
+        {
+            do
+            {
+            //Displaying the Egg Noodles Menu
+                cout << "       Mi - Egg Noodles" << endl;
+                cout << endl;
+                cout.setf(ios::left);  //makes the field left justified
+                for (unsigned int x =0; x < eggNoodles.size(); x++)
+                {
+                    cout << x+1 << ". " << setw(40) << eggNoodles[x].itemName << "$" << setw(10);
+                    cout << eggNoodles[x].itemCost << endl;
+                }
+
+            //cout << endl;
+                cout << endl;
+                cout << "What would you like to order from the Egg Noodles' menu [enter between 1 - 5]?";
+                cin >> order;
+
+                while (!( (order > 0)  && (order < 6) ) )
+                {
+                    cout << "Invalid order number! Enter a valid order number between 1-5";
+                    cin >> order;
+                }
+  
+
+                cout << "How many of " << eggNoodles[order - 1].itemName << " would you like? ";
+                cin >> num1;
+
+                //vector<singleOrder> orderHistory;
+                orderHistory2.push_back(singleOrder((order-1), num1));
+
+                cout << "Would you like to order something else from Egg Noodles menu?[Enter 1 for YES and 2 for No]: ";
+                cin >>answer;
+            }
+            while (answer != 2);
+
+        }
+
+        if (pick == 4)
+        {
+            do
+            {
+            //Displaying the Vietnamese sandwich Menu
+                cout << " Banh Mi (sandwich) Menu" << endl;
+                cout << endl;
+                cout.setf(ios::left);  //makes the field left justified
+                for (unsigned int x =0; x < banhMi.size(); x++)
+                {
+                    cout << x+1 << ". " << setw(40) << banhMi[x].itemName << "$" << setw(10);
+                    cout << banhMi[x].itemCost << endl;
+                }
+
+            //cout << endl;
+                cout << endl;
                 cout << "What would you like to order from the Appetizer menu [enter between 1 - 10]?";
                 cin >> order;
 
@@ -578,11 +711,50 @@ int main()
                 }
   
 
-                cout << "How many of " << phoMenu[order - 1].itemName << " would you like? ";
+                cout << "How many of " << banhMi[order - 1].itemName << " would you like? ";
                 cin >> num1;
 
                 //vector<singleOrder> orderHistory;
-                orderHistory1.push_back(singleOrder((order-1), num1));
+                orderHistory3.push_back(singleOrder((order-1), num1));
+
+                cout << "Would you like to order something else from Pho menu?[Enter 1 for YES and 2 for No]";
+                cin >>answer;
+            }
+            while (answer != 2);
+
+        }
+
+        if (pick == 5)
+        {
+            do
+            {
+            //Displaying the Drinks Menu
+                cout << " Drinks Menu" << endl;
+                cout << endl;
+                cout.setf(ios::left);  //makes the field left justified
+                for (unsigned int x =0; x < drinksMenu.size(); x++)
+                {
+                    cout << x+1 << ". " << setw(40) << drinksMenu[x].itemName << "$" << setw(10);
+                    cout << drinksMenu[x].itemCost << endl;
+                }
+
+            //cout << endl;
+                cout << endl;
+                cout << "What would you like to order from the Appetizer menu [enter between 1 - 10]?";
+                cin >> order;
+
+                while (!( (order > 0)  && (order < 11) ) )
+                {
+                    cout << "Invalid order number! Enter a valid order number between 1-10";
+                    cin >> order;
+                }
+  
+
+                cout << "How many of " << drinksMenu[order - 1].itemName << " would you like? ";
+                cin >> num1;
+
+                //vector<singleOrder> orderHistory;
+                orderHistory4.push_back(singleOrder((order-1), num1));
 
                 cout << "Would you like to order something else from Pho menu?[Enter 1 for YES and 2 for No]";
                 cin >>answer;
@@ -592,7 +764,7 @@ int main()
         }
  
 
-        if (pick == 8)
+        if (pick == 6)
         {
             double summingAmmount = 0;
             //do{
@@ -640,6 +812,72 @@ int main()
                 //}
                 //cout << "Would you like to go back to the main menu?[Enter 1 for YES and 2 for NO";
             } 
+            for (unsigned int x = 0; x < eggNoodles.size(); x++)
+            {
+                double totalSales = 0;
+                unsigned int totalQuantity = 0;
+                //calculating the total price per order
+                for ( unsigned int j  =0; j < orderHistory2.size(); j++ )
+                {
+                    if (orderHistory2[j].itemOrdered == x)
+                    {
+                        totalQuantity += orderHistory2[j].numberItems;
+                    }
+                }
+                totalSales = totalQuantity * eggNoodles[x].itemCost;
+
+                summingAmmount = summingAmmount + totalSales;
+                //print out only the orders that have been placed and the total price
+                if (totalQuantity > 0)
+                    cout << setw(20) << eggNoodles[x].itemName << setw(5) << totalQuantity << "$" << totalSales << "    " << summingAmmount << endl;
+                    
+                //}
+                //cout << "Would you like to go back to the main menu?[Enter 1 for YES and 2 for NO";
+            } 
+            for (unsigned int x = 0; x < banhMi.size(); x++)
+            {
+                double totalSales = 0;
+                unsigned int totalQuantity = 0;
+                //calculating the total price per order
+                for ( unsigned int j  =0; j < orderHistory3.size(); j++ )
+                {
+                    if (orderHistory3[j].itemOrdered == x)
+                    {
+                        totalQuantity += orderHistory3[j].numberItems;
+                    }
+                }
+                totalSales = totalQuantity * banhMi[x].itemCost;
+
+                summingAmmount = summingAmmount + totalSales;
+                //print out only the orders that have been placed and the total price
+                if (totalQuantity > 0)
+                    cout << setw(20) << banhMi[x].itemName << setw(5) << totalQuantity << "$" << totalSales << "    " << summingAmmount << endl;
+                    
+                //}
+                //cout << "Would you like to go back to the main menu?[Enter 1 for YES and 2 for NO";
+            } 
+            for (unsigned int x = 0; x < drinksMenu.size(); x++)
+            {
+                double totalSales = 0;
+                unsigned int totalQuantity = 0;
+                //calculating the total price per order
+                for ( unsigned int j  =0; j < orderHistory4.size(); j++ )
+                {
+                    if (orderHistory4[j].itemOrdered == x)
+                    {
+                        totalQuantity += orderHistory4[j].numberItems;
+                    }
+                }
+                totalSales = totalQuantity * drinksMenu[x].itemCost;
+
+                summingAmmount = summingAmmount + totalSales;
+                //print out only the orders that have been placed and the total price
+                if (totalQuantity > 0)
+                    cout << setw(20) << drinksMenu[x].itemName << setw(5) << totalQuantity << "$" << totalSales << "    " << summingAmmount << endl;
+                    
+                //}
+                //cout << "Would you like to go back to the main menu?[Enter 1 for YES and 2 for NO";
+            } 
             
             cout << endl;
             cout << "Would you like to pay or return to the main menu? [Enter 1 to pay or Enter 0 to go back to the main menu: ";
@@ -651,14 +889,9 @@ int main()
                 finalPayment(summingAmmount);
             }
 
+            cout << endl;
+
             exit(0);
-
-            //finalPayment(summingAmmount);
-
-
-            
-            //while (answer != 1);
-
             
         }
 
@@ -666,7 +899,7 @@ int main()
         //cin >>  choice;
        // pick = mainMenu(answer);
 
-    } while(((pick > -1 ) && (pick < 9)));
+    } while(((pick > 0 ) && (pick < 7)));
     cout << "error";
     
    
