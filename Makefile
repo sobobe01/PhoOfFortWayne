@@ -1,17 +1,38 @@
-CXX ?= c++
+CXX      ?= c++
 CXXFLAGS ?= -std=c++17 -Wall -Wextra -Wpedantic -O2
+# Header-only libraries: nlohmann/json and cpp-httplib (brew install nlohmann-json cpp-httplib)
+PREFIX   := $(shell brew --prefix 2>/dev/null || echo /usr/local)
+CPPFLAGS += -I$(PREFIX)/include
+LDLIBS   += -lcurl -lpthread
 
-pho: main.cpp
-	$(CXX) $(CXXFLAGS) -o $@ main.cpp
+SOURCES := $(wildcard src/*.cpp)
+OBJECTS := $(SOURCES:src/%.cpp=build/%.o)
+
+pho: $(OBJECTS)
+	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDLIBS)
+
+build/%.o: src/%.cpp src/*.hpp | build
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -c -o $@ $<
+
+build:
+	mkdir -p build
 
 run: pho
 	./pho
 
+agent: pho
+	./pho --agent
+
+web: pho
+	./pho --web
+
+report: pho
+	./pho --report
+
 test: pho
-	@for t in tests/*.in; do ./pho < $$t | diff -u $${t%.in}.expected - || exit 1; done
-	@echo "tests passed"
+	@sh tests/run.sh
 
 clean:
-	rm -f pho
+	rm -rf pho build
 
-.PHONY: run test clean
+.PHONY: run agent web report test clean
