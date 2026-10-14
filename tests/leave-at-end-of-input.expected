@@ -1,0 +1,38 @@
+
+  Welcome to Pho of Fort Wayne!
+  Serving authentic Vietnamese food in Fort Wayne, Indiana since 2009
+
+  Main menu
+
+    1. Appetizers
+    2. Pho - Rice Noodle Soup
+    3. Mi - Egg Noodles
+    4. Banh Mi - Vietnamese Sandwiches
+    5. Drinks
+    6. Review order and check out
+    0. Leave without ordering
+
+Choose: Please enter a whole number from 0 to 6.
+Choose: 
+  Drinks
+
+   1. Soy Bean Milk                    $3.00
+   2. Coconut Juice                    $3.00
+   3. Fresh Lemonade                   $4.50
+   4. Vietnamese Iced Coffee           $4.50
+   5. Lime Juice Lipton                $4.99
+   6. Bubble Tea                       $4.99
+        Milk tea, Thai tea, taro, coconut or mocha
+   7. Smoothie                         $4.50
+        Strawberry, mango, lychee, mocha or pina colada
+   8. Soft Drink                       $1.99
+        Coke, Diet Coke, Sprite or root beer
+   9. Beer                             $3.10
+        Heineken, Corona, Budweiser, Bud Light or Miller Lite
+
+     0. Back to the main menu
+
+Add which item? Please enter a whole number from 0 to 9.
+Add which item? How many Vietnamese Iced Coffee? Please enter a whole number from 1 to 50.
+How many Vietnamese Iced Coffee? 
+Goodbye!
