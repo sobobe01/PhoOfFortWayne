@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pho of Fort Wayne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Shared SVG symbols: the bowl mark and the star-anise stamp. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="bowl" viewBox="0 0 64 64">
+    <path d="M22 14c-3 4 3 6 0 10M32 10c-3 5 3 7 0 12M42 14c-3 4 3 6 0 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" class="steam"/>
+    <path d="M6 30h52c0 14-11 24-26 24S6 44 6 30z" fill="currentColor"/>
+    <rect x="22" y="54" width="20" height="4" rx="2" fill="currentColor"/>
+    <path d="M44 8l14 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M50 6l10 20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="anise" viewBox="0 0 48 48">
+    <g fill="currentColor">
+      <ellipse cx="24" cy="10" rx="5" ry="9"/>
+      <ellipse cx="24" cy="10" rx="5" ry="9" transform="rotate(45 24 24)"/>
+      <ellipse cx="24" cy="10" rx="5" ry="9" transform="rotate(90 24 24)"/>
+      <ellipse cx="24" cy="10" rx="5" ry="9" transform="rotate(135 24 24)"/>
+      <ellipse cx="24" cy="10" rx="5" ry="9" transform="rotate(180 24 24)"/>
+      <ellipse cx="24" cy="10" rx="5" ry="9" transform="rotate(225 24 24)"/>
+      <ellipse cx="24" cy="10" rx="5" ry="9" transform="rotate(270 24 24)"/>
+      <ellipse cx="24" cy="10" rx="5" ry="9" transform="rotate(315 24 24)"/>
+    </g>
+    <circle cx="24" cy="24" r="5" fill="var(--paper)"/>
+  </symbol>
+</svg>
+
+<header class="top">
+  <div class="brand">
+    <svg class="logo" aria-hidden="true"><use href="#bowl"/></svg>
+    <div>
+      <h1>Pho of Fort Wayne</h1>
+      <p>Vietnamese kitchen &middot; since 2009</p>
+    </div>
+  </div>
+  <nav class="tabs" role="tablist">
+    <button role="tab" data-tab="order" aria-selected="true">Order</button>
+    <button role="tab" data-tab="passport" aria-selected="false">Passport</button>
+    <button role="tab" data-tab="restaurant" aria-selected="false">Restaurant</button>
+  </nav>
+</header>
+
+<main>
+  <!-- ORDER -->
+  <section id="tab-order" class="tab-panel order">
+    <div class="left">
+      <div class="switch" role="tablist" aria-label="How to order">
+        <button data-view="chat" aria-pressed="true">Chat with us</button>
+        <button data-view="menu" aria-pressed="false">Browse the menu</button>
+      </div>
+
+      <div id="view-chat" class="panel chat">
+        <div id="messages" class="messages" aria-live="polite"></div>
+        <div id="chips" class="chips"></div>
+        <form id="chat-form" class="composer">
+          <input id="chat-input" autocomplete="off" placeholder="Tell us what you're craving..." maxlength="2000">
+          <button type="submit" class="btn primary">Send</button>
+        </form>
+      </div>
+
+      <div id="view-menu" class="panel menu" hidden>
+        <div id="menu-sections" class="sections"></div>
+        <div id="menu-board" class="board"></div>
+      </div>
+    </div>
+
+    <aside class="right">
+      <div class="panel cart">
+        <h2>Your bowl</h2>
+        <div id="cart-lines" class="cart-lines"></div>
+        <dl id="cart-totals" class="totals"></dl>
+        <div id="mini-passport" class="mini-passport"></div>
+        <button id="checkout-btn" class="btn primary wide">Check out</button>
+      </div>
+    </aside>
+  </section>
+
+  <!-- PASSPORT -->
+  <section id="tab-passport" class="tab-panel" hidden>
+    <div class="passport-book">
+      <div class="page cover">
+        <svg class="logo big" aria-hidden="true"><use href="#bowl"/></svg>
+        <h2>Foodie Passport</h2>
+        <p id="passport-owner"></p>
+      </div>
+      <div class="page">
+        <h3>Stamps</h3>
+        <div id="stamp-grid" class="stamp-grid"></div>
+        <p id="passport-message" class="lede"></p>
+        <h3>Dishes tried</h3>
+        <div id="passport-sections"></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Saved cards</h3>
+      <p class="muted">Only the brand, last 4 digits and expiry are kept. Up to 3 cards.</p>
+      <div id="saved-cards"></div>
+    </div>
+  </section>
+
+  <!-- RESTAURANT -->
+  <section id="tab-restaurant" class="tab-panel" hidden>
+    <div class="panel">
+      <div class="row-between">
+        <h2>Menu report</h2>
+        <button id="insights-btn" class="btn">Ask for recommendations</button>
+      </div>
+      <div id="kpis" class="kpis"></div>
+      <p id="report-notes" class="muted"></p>
+      <div id="insights" class="insights" hidden></div>
+      <div class="table-wrap"><table id="report-table"></table></div>
+      <div class="two-col">
+        <div><h3>Ordered together most</h3><ul id="top-pairs" class="plain"></ul></div>
+        <div><h3>Never ordered</h3><ul id="never" class="plain"></ul></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- CHECKOUT -->
+<dialog id="checkout">
+  <form method="dialog" class="sheet" id="pay-form">
+    <div class="row-between">
+      <h2>Checkout</h2>
+      <button value="cancel" class="icon" aria-label="Close">&times;</button>
+    </div>
+    <div id="pay-summary" class="totals"></div>
+    <fieldset>
+      <legend>Tip</legend>
+      <div id="tips" class="segmented"></div>
+    </fieldset>
+    <fieldset>
+      <legend>Pay with</legend>
+      <div id="card-choices" class="card-choices"></div>
+      <div id="new-card" class="new-card" hidden>
+        <label>Card number<input id="cc-number" inputmode="numeric" autocomplete="cc-number" placeholder="4242 4242 4242 4242"></label>
+        <div class="row">
+          <label>Expiry<input id="cc-exp" autocomplete="cc-exp" placeholder="MM/YY"></label>
+          <label>Security code<input id="cc-cvv" inputmode="numeric" autocomplete="cc-csc" placeholder="123"></label>
+        </div>
+        <label class="check"><input type="checkbox" id="cc-save"> Save this card</label>
+        <label id="nick-row" hidden>Nickname<input id="cc-nick" maxlength="20" placeholder="Personal"></label>
+        <p id="save-note" class="muted small"></p>
+      </div>
+    </fieldset>
+    <p id="pay-error" class="error" role="alert"></p>
+    <button id="pay-btn" type="button" class="btn primary wide">Pay</button>
+    <p class="muted small">Demo checkout: no money moves. Card numbers are checked on this computer and never stored.</p>
+  </form>
+  <div id="receipt" class="sheet" hidden></div>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>

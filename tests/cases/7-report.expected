@@ -1,0 +1,25 @@
+
+  Pho of Fort Wayne - menu report
+
+  Orders: 5   Customers: 1   Food revenue: $64.95   Average order: $14.41
+  Passport discounts given: $1.50
+  Fewer than 30 orders: treat these numbers as an early signal.
+  Quadrants use price against the category average, not profit margin: the menu has no food costs.
+
+  Item                          Price  Units   Revenue   Share  Position
+  Mi Xao                       $14.99      3    $44.97   69.2%  Star
+  Pho Dac Biet                  $9.99      2    $19.98   30.8%  Star
+
+  Positioning
+    Mi Xao (Star): Feature it: top of its section, first thing the assistant suggests.
+    Pho Dac Biet (Star): Feature it: top of its section, first thing the assistant suggests.
+
+  Never ordered (menu order)
+    Appetizers: Vietnamese Egg Rolls (2), Vietnamese Spring Rolls (2), Nem Nuong Cuon (2), Bo Nuong, Muc Chien, Hen Nuong, Chim Cut Quay, Canh Ga Nuoc Mam (6), Sesame Chicken Wings (6), House Chicken Wings (6)
+    Pho - Rice Noodle Soup: Pho Tai, Pho Ga, Hu Tieu Dac Biet, Hu Tieu Ga
+    Mi - Egg Noodles: Mi Dac Biet, Mi Hai San, Mi Ga, Mi Kho Dac Biet
+    Banh Mi - Vietnamese Sandwiches: Banh Mi Dac Biet, Banh Mi Ga, Banh Mi Bo, Banh Mi Bi
+    Drinks: Soy Bean Milk, Coconut Juice, Fresh Lemonade, Vietnamese Iced Coffee, Lime Juice Lipton, Bubble Tea, Smoothie, Soft Drink, Beer
+
+  Ordered together most
+    No orders with two or more dishes yet.
