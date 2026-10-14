@@ -2,6 +2,9 @@
   Welcome to Pho of Fort Wayne!
   Serving authentic Vietnamese food in Fort Wayne, Indiana since 2009
 
+  Foodie Passport: [ ][ ][ ][ ] 0 of 4 stamps
+  Dishes tried: 0 of 33
+
   Main menu
 
     1. Appetizers
@@ -15,6 +18,9 @@
 Choose: Please enter a whole number from 0 to 6.
 Choose: 
 Your cart is empty.
+
+  Foodie Passport: [ ][ ][ ][ ] 0 of 4 stamps
+  Dishes tried: 0 of 33
 
   Main menu
 
@@ -80,6 +86,9 @@ Add which item? How many Vietnamese Egg Rolls (2)? Added 2 x Vietnamese Egg Roll
      0. Back to the main menu
 
 Add which item? 
+  Foodie Passport: [ ][ ][ ][ ] 0 of 4 stamps
+  Dishes tried: 0 of 33
+
   Main menu  (cart: 2 item(s), $5.98)
 
     1. Appetizers
@@ -126,6 +135,9 @@ How many Pho Dac Biet? Added 1 x Pho Dac Biet. Cart: 3 item(s), $15.97
      0. Back to the main menu
 
 Add which item? 
+  Foodie Passport: [ ][ ][ ][ ] 0 of 4 stamps
+  Dishes tried: 0 of 33
+
   Main menu  (cart: 3 item(s), $15.97)
 
     1. Appetizers
@@ -148,6 +160,7 @@ Choose:
 
   1. Pay
   2. Remove an item
+  3. Saved cards
   0. Back to the main menu
 
 Choose: Remove which line? (0 to cancel) Removed Vietnamese Egg Rolls (2).
@@ -162,6 +175,7 @@ Choose: Remove which line? (0 to cancel) Removed Vietnamese Egg Rolls (2).
 
   1. Pay
   2. Remove an item
+  3. Saved cards
   0. Back to the main menu
 
 Choose: 
@@ -174,4 +188,22 @@ Choose:
 
 Choose a tip: Please enter a whole number from 0 to 3.
 Choose a tip: 
-Thank you! Your payment of $12.39 was accepted.
+  Pay $12.39 with:
+
+    1. A new card
+    0. Cancel
+
+Choose: 
+  New card - it is checked here, and only the brand, last 4 digits and expiry
+  can be saved. The full number and security code are never stored.
+
+Card number: Expiry (MM/YY): Security code: That card number isn't valid. Please check it and try again.
+
+Card number: Expiry (MM/YY): Security code: Please enter the expiry as MM/YY.
+
+Card number: Expiry (MM/YY): Security code: The security code should be 3 digits.
+
+Card number: Expiry (MM/YY): Security code: Save this card for next time? (1 = yes, 0 = no) Nickname for this card (Enter for "Visa"): Saved Visa ending 4242 (Personal), expires 12/35.
+
+Thank you! Your payment of $12.39 on Visa ending 4242 was accepted.
+Foodie Passport: [*][ ][ ][ ] 1 of 4 stamps
